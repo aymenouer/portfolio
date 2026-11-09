@@ -18,14 +18,14 @@ export const PORTFOLIO_EN: Portfolio = {
   },
   navLinks: [
     { sectionId: 'about', label: 'About' },
-    { sectionId: 'knowledge', label: 'Knowledge' },
+    { sectionId: 'skills', label: 'Skills' },
     { sectionId: 'projects', label: 'Projects' },
     { sectionId: 'experience', label: 'Experience' },
     { sectionId: 'contact', label: 'Contact' },
   ],
   stats: [
     { value: '3+', label: 'Years of professional experience' },
-    { value: '5', label: 'Engineering roles listed' },
+    { value: '2023', label: 'Joined Immomio as Frontend Engineer' },
     { value: '3', label: 'Selected academic projects' },
     { value: '1st', label: 'ESPRIT Projects Competition, 2021' },
   ],
@@ -116,7 +116,7 @@ export const PORTFOLIO_EN: Portfolio = {
     },
     numbers: { statLabel: '/ NUMBERS' },
     skills: {
-      sceneLabel: 'SCENE 03 / SKILLS', sceneTagline: 'TOOLS OF THE TRADE', eyebrow: '/ KNOWLEDGE',
+      sceneLabel: 'SCENE 03 / SKILLS', sceneTagline: 'TOOLS OF THE TRADE', eyebrow: '/ SKILLS',
       title: { firstLine: 'Built on', highlightedLine: 'curiosity.' },
       intro: 'From performant Angular interfaces to backend APIs, testing and continuous delivery.',
     },

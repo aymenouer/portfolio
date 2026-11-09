@@ -1,8 +1,8 @@
-.knowledge-scene {
+.skills-scene {
   background: #121518;
 }
 
-.knowledge-top {
+.skills-top {
   display: flex;
   align-items: end;
   justify-content: space-between;
@@ -10,7 +10,7 @@
   margin-bottom: 75px;
 }
 
-.knowledge-top>p {
+.skills-top>p {
   max-width: 360px;
   color: #acb0b2;
   line-height: 1.7;
@@ -18,14 +18,14 @@
 }
 
 @media (max-width:600px) {
-  .knowledge-top {
+  .skills-top {
     flex-direction: column;
     align-items: start;
     gap: 15px;
     margin-bottom: 39px;
   }
 
-  .knowledge-top>p {
+  .skills-top>p {
     font-size: 13px;
   }
 }

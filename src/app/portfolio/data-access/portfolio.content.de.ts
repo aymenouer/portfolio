@@ -14,14 +14,14 @@ export const PORTFOLIO_DE: Portfolio = {
   },
   navLinks: [
     { sectionId: 'about', label: 'Über mich' },
-    { sectionId: 'knowledge', label: 'Kenntnisse' },
+    { sectionId: 'skills', label: 'Kenntnisse' },
     { sectionId: 'projects', label: 'Projekte' },
     { sectionId: 'experience', label: 'Erfahrung' },
     { sectionId: 'contact', label: 'Kontakt' },
   ],
   stats: [
     { value: '3+', label: 'Jahre Berufserfahrung' },
-    { value: '5', label: 'Stationen in der Softwareentwicklung' },
+    { value: '2023', label: 'Einstieg bei Immomio als Frontend Engineer' },
     { value: '3', label: 'Ausgewählte Studienprojekte' },
     { value: '1.', label: 'Platz beim ESPRIT-Projektwettbewerb 2021' },
   ],
@@ -105,7 +105,7 @@ export const PORTFOLIO_DE: Portfolio = {
     },
     numbers: { statLabel: '/ ZAHLEN' },
     skills: {
-      sceneLabel: 'SZENE 03 / KENNTNISSE', sceneTagline: 'WERKZEUGKASTEN', eyebrow: '/ WISSEN',
+      sceneLabel: 'SZENE 03 / KENNTNISSE', sceneTagline: 'WERKZEUGKASTEN', eyebrow: '/ KOMPETENZEN',
       title: { firstLine: 'Angetrieben von', highlightedLine: 'Neugier.' },
       intro: 'Von performanten Angular-Oberflächen bis zu Backend-APIs, Tests und Continuous Delivery.',
     },

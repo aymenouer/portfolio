@@ -1,5 +1,6 @@
 @let profile = portfolio().profile;
 @let heroText = portfolio().text.hero;
+@let contactText = portfolio().text.contact;
 <section class="hero section-padding">
   <div class="hero-topline mono"><span>{{ heroText.topline }}</span><span>{{ heroText.portfolioLabel }} — {{ currentYear }}</span></div>
 
@@ -12,6 +13,10 @@
       <div class="hero-actions">
         <a class="button button-accent" href="#projects">{{ heroText.exploreWorkButton }} <span aria-hidden="true">↓</span></a>
         <a class="button button-outline" [href]="profile.resumeUrl" [attr.download]="profile.resumeFileName">{{ heroText.downloadResumeButton }} <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="hero-social mono">
+        <a [href]="profile.githubUrl" target="_blank" rel="noopener">{{ contactText.githubLink }} <span aria-hidden="true">↗</span></a>
+        <a [href]="profile.linkedinUrl" target="_blank" rel="noopener">{{ contactText.linkedinLink }} <span aria-hidden="true">↗</span></a>
       </div>
     </div>
 

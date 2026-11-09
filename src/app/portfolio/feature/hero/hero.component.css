@@ -105,6 +105,23 @@
   flex-wrap: wrap;
 }
 
+.hero-social {
+  display: flex;
+  gap: 24px;
+  margin-top: 22px;
+  font-size: 11px;
+  letter-spacing: .04em;
+  color: var(--muted);
+}
+
+.hero-social a {
+  transition: color .2s;
+}
+
+.hero-social a:hover {
+  color: var(--text);
+}
+
 .hero-image-wrap {
   align-self: end;
   height: min(75vh,750px);
