@@ -1,0 +1,57 @@
+:host {
+  display: grid;
+  grid-template-columns: 50px minmax(175px,1fr) minmax(0,2fr);
+  align-items: center;
+  gap: 25px;
+  border-top: 1px solid var(--line);
+  padding: 34px 8px;
+  transition: background .2s,padding .2s;
+  counter-increment: skill;
+}
+
+:host(:last-child) {
+  border-bottom: 1px solid var(--line);
+}
+
+:host(:hover) {
+  background: #202427;
+  padding-left: 22px;
+}
+
+.skill-num {
+  color: var(--lime);
+}
+
+.skill-num::before {
+  content: counter(skill, two-digit);
+}
+
+h3 {
+  font-size: clamp(18px,2vw,29px);
+  margin: 0;
+  letter-spacing: -.05em;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+@media (max-width:600px) {
+  :host {
+    grid-template-columns: 26px 1fr;
+    gap: 9px;
+    padding: 26px 0;
+  }
+
+  h3 {
+    font-size: 19px;
+  }
+
+  .skill-tags {
+    grid-column: 2/3;
+    grid-row: 2;
+    gap: 5px;
+  }
+}

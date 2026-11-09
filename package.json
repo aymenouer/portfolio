@@ -1,0 +1,31 @@
+{
+  "name": "aymen-editorial-portfolio",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "ng serve --host 0.0.0.0",
+    "build": "ng build --configuration production",
+    "check": "tsc --noEmit -p tsconfig.app.json"
+  },
+  "dependencies": {
+    "@angular/common": "^21.0.0",
+    "@angular/compiler": "^21.0.0",
+    "@angular/core": "^21.0.0",
+    "@angular/platform-browser": "^21.0.0",
+    "@angular/platform-server": "^21.2.26",
+    "@angular/ssr": "^21.2.29",
+    "@fontsource/dm-mono": "^5.3.0",
+    "@fontsource/dm-sans": "^5.3.0",
+    "@fontsource/instrument-serif": "^5.3.0",
+    "@ngrx/signals": "^21.1.1",
+    "rxjs": "~7.8.2",
+    "tslib": "^2.8.1"
+  },
+  "devDependencies": {
+    "@angular/build": "^21.0.0",
+    "@angular/cli": "^21.0.0",
+    "@angular/compiler-cli": "^21.0.0",
+    "typescript": "~5.9.3"
+  }
+}

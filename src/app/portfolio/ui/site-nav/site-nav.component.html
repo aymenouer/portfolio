@@ -1,0 +1,27 @@
+<div class="progress-track"><div class="progress-fill"></div></div>
+
+<header class="site-nav">
+  <a class="brand" href="#top" (click)="closeMenu()">
+    <span class="brand-mark">AO<span class="brand-spark" aria-hidden="true">✳</span></span>
+    <span class="brand-text mono">{{ text().brandText }}</span>
+  </a>
+  <span class="nav-status mono"><i class="live-dot" aria-hidden="true"></i> {{ text().availability }}</span>
+  <nav class="desktop-links mono" [attr.aria-label]="text().desktopNavLabel">
+    @for (navLink of navLinks(); track navLink.sectionId) {
+      <a [href]="'#' + navLink.sectionId">{{ navLink.label }}</a>
+    }
+  </nav>
+  <div class="lang-switch mono" role="group" [attr.aria-label]="text().languageSwitchLabel">
+    @for (locale of availableLocales; track locale) {
+      <button type="button" [lang]="locale" [class.is-active]="locale === selectedLocale()" [attr.aria-pressed]="locale === selectedLocale()" (click)="localeSelected.emit(locale)">{{ locale.toUpperCase() }}</button>
+    }
+  </div>
+  <span class="nav-counter mono" aria-hidden="true"></span>
+  <button class="mobile-menu-toggle mono" type="button" aria-controls="mobile-nav" [attr.aria-expanded]="isMenuOpen()" (click)="toggleMenu()">{{ menuButtonLabel() }}</button>
+</header>
+
+<nav class="mobile-links" id="mobile-nav" [attr.aria-label]="text().mobileNavLabel" [class.is-open]="isMenuOpen()">
+  @for (navLink of navLinks(); track navLink.sectionId) {
+    <a [href]="'#' + navLink.sectionId" (click)="closeMenu()">{{ navLink.label }}</a>
+  }
+</nav>

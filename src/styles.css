@@ -1,0 +1,256 @@
+:root {
+  color-scheme: dark;
+  --bg: #0b0d10;
+  --panel: #14171b;
+  --text: #f0f0e9;
+  --muted: #91949b;
+  --line: #303339;
+  --lime: #ddfb70;
+  font-family: 'DM Sans',Arial,sans-serif;
+  font-synthesis: none;
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-width: 320px;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+::selection {
+  color: var(--bg);
+  background: var(--lime);
+}
+
+button,
+a {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+em {
+  font-family: 'Instrument Serif',Georgia,serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* Primitives used by more than one component. Component-specific styles live next to each component. */
+.mono,
+.eyebrow,
+.small-label,
+.button {
+  font-family: 'DM Mono',monospace;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: .04em;
+}
+
+.section-padding {
+  padding-left: clamp(24px,5.2vw,100px);
+  padding-right: clamp(24px,5.2vw,100px);
+}
+
+.scene {
+  padding-top: 108px;
+  padding-bottom: 118px;
+  /* Height of the sticky site nav. */
+  scroll-margin-top: 86px;
+}
+
+.live-dot {
+  display: inline-block;
+  flex-shrink: 0;
+  height: 7px;
+  width: 7px;
+  background: var(--lime);
+  border-radius: 50%;
+  box-shadow: 0 0 14px rgba(221,251,112,.65);
+}
+
+.eyebrow {
+  color: var(--lime);
+  margin: 0 0 27px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.small-label {
+  color: var(--lime);
+}
+
+h2 {
+  font-weight: 700;
+  letter-spacing: -.075em;
+  font-size: clamp(64px,7.2vw,128px);
+  line-height: .9;
+  margin: 18px 0;
+}
+
+h2 em {
+  color: var(--lime);
+}
+
+.body-muted {
+  color: #a5a8ac;
+  line-height: 1.75;
+  font-size: 15px;
+  max-width: 660px;
+}
+
+.button {
+  padding: 17px 21px;
+  border: 1px solid var(--line);
+  display: inline-flex;
+  justify-content: space-between;
+  gap: 35px;
+  transition: transform .2s,background .2s;
+}
+
+.button:hover {
+  transform: translateY(-3px);
+}
+
+.button span {
+  font-size: 15px;
+}
+
+.button-accent {
+  background: var(--lime);
+  color: var(--bg);
+  border-color: var(--lime);
+}
+
+.button-outline {
+  color: var(--text);
+}
+
+.tag {
+  border: 1px solid #41464b;
+  padding: 8px 10px;
+  border-radius: 2px;
+  color: #c8cbca;
+  font-family: 'DM Mono',monospace;
+  font-size: 11px;
+}
+
+@media (max-width:850px) {
+  .scene {
+    padding-top: 75px;
+    padding-bottom: 90px;
+    scroll-margin-top: 70px;
+  }
+}
+
+@media (max-width:600px) {
+  .section-padding {
+    padding-left: 22px;
+    padding-right: 22px;
+  }
+
+  .scene {
+    padding-top: 70px;
+    padding-bottom: 76px;
+  }
+
+  .eyebrow {
+    font-size: 10px;
+  }
+
+  h2 {
+    font-size: clamp(55px,14vw,79px);
+  }
+
+  .tag {
+    font-size: 10px;
+    padding: 7px;
+  }
+
+  .button {
+    flex: 1;
+    font-size: 10px;
+    gap: 10px;
+    padding: 14px 11px;
+  }
+}
+
+/* Zero-padded numbering for CSS counters: counter(x, two-digit) → "01". */
+@counter-style two-digit {
+  system: extends decimal;
+  pad: 2 "0";
+}
+
+@counter-style three-digit {
+  system: extends decimal;
+  pad: 3 "0";
+}
+
+/*
+ * Scroll reveal: add `class="reveal"` to fade an element in as it scrolls into view.
+ * Pure CSS (scroll-driven animation); browsers without support, or with reduced motion, just show the content.
+ */
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+}
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion:no-preference) {
+    .reveal {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 80%;
+    }
+  }
+}
+
+/* Page scroll position 0–100, driven by the root scroller. Used by the nav progress bar and counter. */
+@property --scroll-progress {
+  syntax: '<integer>';
+  inherits: true;
+  initial-value: 0;
+}
+
+@keyframes scroll-progress {
+  to {
+    --scroll-progress: 100;
+  }
+}
+
+@media (prefers-reduced-motion:reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}

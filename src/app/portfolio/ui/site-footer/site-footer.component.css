@@ -1,0 +1,66 @@
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  min-height: 170px;
+}
+
+.footer-mark {
+  font: 800 44px 'DM Sans',sans-serif;
+  letter-spacing: -.13em;
+}
+
+.footer-mark span {
+  font-size: 17px;
+  color: var(--lime);
+  vertical-align: top;
+}
+
+.footer p {
+  line-height: 1.7;
+}
+
+.footer p span {
+  color: #81888a;
+}
+
+.footer>a {
+  color: var(--lime);
+}
+
+.footer-year {
+  color: #7d8488;
+  text-transform: uppercase;
+}
+
+@media (max-width:850px) {
+  .footer {
+    flex-wrap: wrap;
+  }
+
+  .footer-year {
+    width: 100%;
+  }
+}
+
+@media (max-width:600px) {
+  .footer {
+    padding-top: 35px;
+    padding-bottom: 35px;
+    gap: 18px;
+  }
+
+  .footer p {
+    width: calc(100% - 80px);
+    font-size: 10px;
+  }
+
+  .footer>a {
+    font-size: 10px;
+  }
+
+  .footer-year {
+    font-size: 10px;
+  }
+}

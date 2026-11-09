@@ -1,0 +1,127 @@
+.experience-scene {
+  background: #101216;
+}
+
+.experience-layout {
+  display: grid;
+  grid-template-columns: 35% 1fr;
+  gap: 9%;
+}
+
+.experience-intro h2 {
+  font-size: clamp(53px,5.2vw,95px);
+}
+
+.experience-intro>p:last-child {
+  font-size: 15px;
+  color: #a4a7a8;
+  line-height: 1.7;
+  max-width: 370px;
+  margin-top: 45px;
+}
+
+.credential-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 12px;
+  margin-top: 95px;
+}
+
+.credential-card {
+  background: #1c2023;
+  min-height: 270px;
+  padding: 25px;
+}
+
+.credential-card h3 {
+  font-size: 28px;
+  letter-spacing: -.06em;
+  margin: 45px 0 8px;
+}
+
+.credential-card p {
+  color: #c6c8c8;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.credential-card small {
+  font-size: 11px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.credential-card ul {
+  padding-left: 16px;
+  color: #c4c8c8;
+  line-height: 1.65;
+  font-size: 12px;
+}
+
+.credential-card li {
+  margin-top: 14px;
+}
+
+.lang-line {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  padding: 12px 0;
+  font-size: 12px;
+  gap: 8px;
+}
+
+.lang-line:first-of-type {
+  margin-top: 27px;
+}
+
+.lang-line span:last-child {
+  color: #9ca3a6;
+  text-align: right;
+}
+
+@media (max-width:1200px) {
+  .credential-grid {
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
+@media (max-width:850px) {
+  .experience-layout {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .experience-intro h2 {
+    font-size: 70px;
+  }
+
+  .experience-intro>p:last-child {
+    margin-top: 22px;
+  }
+}
+
+@media (max-width:600px) {
+  .experience-intro h2 {
+    font-size: 64px;
+  }
+
+  .credential-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 55px;
+  }
+
+  .credential-card {
+    min-height: 0;
+    padding: 25px;
+  }
+
+  .credential-card h3 {
+    margin-top: 30px;
+  }
+}
+
+.experience-list {
+  counter-reset: job;
+}

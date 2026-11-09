@@ -1,0 +1,7 @@
+<span class="skill-num mono"></span>
+<h3>{{ skillGroup().name }}</h3>
+<div class="skill-tags">
+  @for (technology of skillGroup().technologies; track technology) {
+    <span class="tag">{{ technology }}</span>
+  }
+</div>

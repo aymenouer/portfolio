@@ -1,0 +1,40 @@
+:host {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  margin-bottom: 82px;
+  color: var(--scene-heading-color, #979da1);
+}
+
+.scene-number {
+  color: var(--scene-accent, var(--lime));
+  white-space: nowrap;
+}
+
+.scene-rule {
+  flex: 1;
+  height: 1px;
+  background: var(--scene-rule-color, var(--line));
+}
+
+.scene-aside {
+  white-space: nowrap;
+}
+
+@media (max-width:850px) {
+  :host {
+    margin-bottom: 55px;
+  }
+}
+
+@media (max-width:600px) {
+  :host {
+    gap: 12px;
+    font-size: 10px;
+    margin-bottom: 52px;
+  }
+
+  .scene-aside {
+    display: none;
+  }
+}

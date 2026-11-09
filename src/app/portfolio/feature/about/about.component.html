@@ -1,0 +1,23 @@
+@let profile = portfolio().profile;
+@let aboutText = portfolio().text.about;
+@let education = educationCredential();
+<section class="scene about-scene section-padding" id="about">
+  <app-scene-heading class="reveal" [label]="aboutText.sceneLabel" [tagline]="aboutText.sceneTagline" />
+
+  <div class="about-layout">
+    <div class="reveal">
+      <p class="eyebrow">{{ aboutText.eyebrow }}</p>
+      <h2>{{ aboutText.title.firstLine }}<br><em>{{ aboutText.title.highlightedLine }}</em></h2>
+      <div class="about-asterisk" aria-hidden="true">✳</div>
+    </div>
+
+    <div class="about-detail reveal">
+      <p class="about-statement">{{ aboutText.statement.before }} <span>{{ aboutText.statement.highlight }}</span> {{ aboutText.statement.after }}</p>
+      <p class="body-muted">{{ profile.summary }}</p>
+      <div class="about-meta">
+        <div><span class="small-label">{{ aboutText.locationLabel }}</span><strong>{{ profile.location }}</strong></div>
+        <div><span class="small-label">{{ aboutText.educationLabel }}</span><strong>{{ education.detail }}<br>{{ education.institution }} / {{ education.city }}</strong></div>
+      </div>
+    </div>
+  </div>
+</section>

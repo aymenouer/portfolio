@@ -1,0 +1,33 @@
+<div class="project-art" [class]="'art-' + project().colorTheme">
+  <div class="art-header mono"><span class="project-number">{{ text().projectLabel }}</span><span>{{ text().illustrationLabel }}</span></div>
+  <div class="art-display">
+    @switch (project().illustration) {
+      @case ('pipeline') {
+        <div class="code-graphic"><span>BUILD</span><span>TEST</span><span>SCAN</span><span>SHIP</span></div>
+      }
+      @case ('network') {
+        <div class="network-graphic" aria-hidden="true"><span>●</span><span>●</span><span>●</span><span>●</span><span>●</span></div>
+      }
+      @case ('event') {
+        <div class="event-graphic"><div>24</div><div>EVENT<br>SPACE</div></div>
+      }
+    }
+  </div>
+  <div class="art-footer mono"><span>{{ project().institution }}</span><span>{{ project().period }}</span></div>
+</div>
+
+<div class="project-info">
+  <span class="project-index mono">{{ text().featuredLabel }}</span>
+  <h3>{{ project().name }}</h3>
+  <p>{{ project().description }}</p>
+  <div class="project-stack">
+    @for (technology of project().technologies; track technology) {
+      <span class="tag">{{ technology }}</span>
+    }
+  </div>
+  @if (project().liveDemoUrl; as liveDemoUrl) {
+    <a class="project-link mono" [href]="liveDemoUrl" target="_blank" rel="noopener">{{ text().liveDemoLink }} <span aria-hidden="true">↗</span></a>
+  } @else {
+    <span class="project-link project-link-muted mono">{{ text().academicLabel }} {{ project().institution }}</span>
+  }
+</div>

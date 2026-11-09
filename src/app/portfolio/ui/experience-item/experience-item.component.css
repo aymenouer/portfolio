@@ -1,0 +1,73 @@
+:host {
+  display: grid;
+  grid-template-columns: 30px 1fr auto;
+  gap: 16px;
+  padding: 30px 0;
+  border-top: 1px solid var(--line);
+  counter-increment: job;
+}
+
+.experience-no::before {
+  content: counter(job, two-digit);
+}
+
+.experience-no {
+  color: var(--lime);
+  padding-top: 5px;
+}
+
+h3 {
+  font-size: 23px;
+  margin: 0 0 12px;
+  letter-spacing: -.05em;
+}
+
+strong {
+  font-size: 13px;
+  color: #b8bdc1;
+  font-weight: 500;
+}
+
+p {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+  max-width: 520px;
+}
+
+.experience-date {
+  color: #c8ceca;
+  text-align: right;
+  line-height: 1.5;
+  max-width: 170px;
+}
+
+.experience-date span {
+  display: block;
+  color: #737a7e;
+  margin-top: 4px;
+}
+
+@media (max-width:600px) {
+  :host {
+    grid-template-columns: 22px 1fr;
+    gap: 13px;
+    padding: 24px 0;
+  }
+
+  h3 {
+    font-size: 19px;
+  }
+
+  .experience-date {
+    grid-column: 2;
+    text-align: left;
+    max-width: none;
+    font-size: 10px;
+  }
+
+  .experience-date span {
+    display: inline;
+    margin-left: 8px;
+  }
+}

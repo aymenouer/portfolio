@@ -1,0 +1,6 @@
+@let manifestoText = portfolio().text.manifesto;
+<section class="manifesto-scene section-padding">
+  <span class="manifesto-index mono">{{ manifestoText.sceneLabel }}</span>
+  <p class="reveal">{{ manifestoText.statementLines[0] }}<br>{{ manifestoText.statementLines[1] }} <em>{{ manifestoText.highlightedWord }}</em></p>
+  <div class="manifesto-bottom mono"><span>{{ manifestoText.values }}</span><span aria-hidden="true">✳</span><span>{{ manifestoText.closingNote }}</span></div>
+</section>

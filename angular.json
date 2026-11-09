@@ -1,0 +1,84 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "aymen-editorial-portfolio": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular/build:application",
+          "options": {
+            "outputPath": "dist/aymen-editorial-portfolio",
+            "browser": "src/main.ts",
+            "server": "src/main.server.ts",
+            "outputMode": "static",
+            "tsConfig": "tsconfig.app.json",
+            "assets": [
+              {
+                "glob": "**/*",
+                "input": "public"
+              }
+            ],
+            "styles": [
+              "node_modules/@fontsource/dm-sans/latin-400.css",
+              "node_modules/@fontsource/dm-sans/latin-500.css",
+              "node_modules/@fontsource/dm-sans/latin-600.css",
+              "node_modules/@fontsource/dm-sans/latin-700.css",
+              "node_modules/@fontsource/dm-sans/latin-800.css",
+              "node_modules/@fontsource/dm-sans/latin-900.css",
+              "node_modules/@fontsource/dm-mono/latin-400.css",
+              "node_modules/@fontsource/dm-mono/latin-500.css",
+              "node_modules/@fontsource/instrument-serif/latin-400-italic.css",
+              "src/styles.css"
+            ],
+            "index": "src/index.html",
+            "inlineStyleLanguage": "css"
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "600kB",
+                  "maximumError": "1MB"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "30kB",
+                  "maximumError": "50kB"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular/build:dev-server",
+          "configurations": {
+            "development": {
+              "buildTarget": "aymen-editorial-portfolio:build:development"
+            }
+          },
+          "options": {
+            "buildTarget": "aymen-editorial-portfolio:build"
+          },
+          "defaultConfiguration": "development"
+        }
+      }
+    }
+  },
+  "cli": {
+    "analytics": false
+  }
+}

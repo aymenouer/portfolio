@@ -1,0 +1,12 @@
+@let numbersText = portfolio().text.numbers;
+<section class="scene numbers-scene section-padding">
+  <div class="numbers-grid">
+    @for (stat of portfolio().stats; track stat.label) {
+      <div class="number-cell reveal">
+        <span class="cell-index mono">{{ numbersText.statLabel }}</span>
+        <strong>{{ stat.value }}</strong>
+        <span>{{ stat.label }}</span>
+      </div>
+    }
+  </div>
+</section>

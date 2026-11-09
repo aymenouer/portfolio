@@ -1,0 +1,32 @@
+@let profile = portfolio().profile;
+@let heroText = portfolio().text.hero;
+<section class="hero section-padding">
+  <div class="hero-topline mono"><span>{{ heroText.topline }}</span><span>{{ heroText.portfolioLabel }} — {{ currentYear }}</span></div>
+
+  <div class="hero-content">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="mini-cross" aria-hidden="true">✳</span> {{ profile.role }} / {{ profile.location }}</p>
+      <h1>{{ profile.firstName }}<br><span>{{ profile.lastName }}<span class="hero-period">.</span></span></h1>
+      <p class="hero-lead">{{ heroText.intro.before }} <em>{{ heroText.intro.highlight }}</em> {{ heroText.intro.after }}</p>
+      <p class="hero-summary">{{ heroText.summary }}</p>
+      <div class="hero-actions">
+        <a class="button button-accent" href="#projects">{{ heroText.exploreWorkButton }} <span aria-hidden="true">↓</span></a>
+        <a class="button button-outline" [href]="profile.resumeUrl" [attr.download]="profile.resumeFileName">{{ heroText.downloadResumeButton }} <span aria-hidden="true">↓</span></a>
+      </div>
+    </div>
+
+    <div class="hero-image-wrap">
+      <div class="portrait-technical mono" aria-hidden="true"><span>{{ heroText.figureLabel }}</span><span>{{ heroText.subjectLabel }}</span></div>
+      <div class="portrait-halo"></div>
+      <img class="hero-portrait" [src]="profile.portraitUrl" [alt]="heroText.portraitAltPrefix + ' ' + profile.fullName" width="1122" height="1402" fetchpriority="high">
+      <span class="photo-caption mono">{{ heroText.portraitCaption[0] }}<br>{{ heroText.portraitCaption[1] }}</span>
+      <span class="photo-coordinate mono">{{ heroText.locationLabel }}</span>
+    </div>
+  </div>
+
+  <div class="hero-bottom mono">
+    <div class="tiny-id"><span>{{ heroText.sceneCounter }}</span><span>{{ heroText.sceneName }}</span></div>
+    <span class="hero-bottom-word">{{ heroText.tagline.before }} <em>{{ heroText.tagline.highlight }}</em> {{ heroText.tagline.after }}</span>
+    <a class="scroll-prompt" href="#about">{{ heroText.scrollPrompt }} <span aria-hidden="true">↓</span></a>
+  </div>
+</section>

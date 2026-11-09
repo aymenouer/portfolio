@@ -1,0 +1,45 @@
+@let experienceText = portfolio().text.experience;
+<section class="scene experience-scene section-padding" id="experience">
+  <app-scene-heading class="reveal" [label]="experienceText.sceneLabel" [tagline]="experienceText.sceneTagline" />
+
+  <div class="experience-layout">
+    <div class="experience-intro reveal">
+      <p class="eyebrow">{{ experienceText.eyebrow }}</p>
+      <h2>{{ experienceText.title.firstLine }}<br><em>{{ experienceText.title.highlightedLine }}</em></h2>
+      <p>{{ experienceText.intro }}</p>
+    </div>
+
+    <div class="experience-list">
+      @for (job of portfolio().jobs; track job.company) {
+        <article app-experience-item class="reveal" [job]="job"></article>
+      }
+    </div>
+  </div>
+
+  <div class="credential-grid">
+    @for (credential of portfolio().credentials; track credential.kind) {
+      <div class="credential-card reveal">
+        <span class="small-label">/ {{ credential.category }}</span>
+        <h3>{{ credential.institution }}</h3>
+        <p>{{ credential.detail }}</p>
+        <small>{{ credential.periodAndPlace }}</small>
+      </div>
+    }
+
+    <div class="credential-card reveal">
+      <span class="small-label">{{ experienceText.certificationsLabel }}</span>
+      <ul>
+        @for (certification of portfolio().certifications; track certification) {
+          <li>{{ certification }}</li>
+        }
+      </ul>
+    </div>
+
+    <div class="credential-card reveal">
+      <span class="small-label">{{ experienceText.languagesLabel }}</span>
+      @for (language of portfolio().languages; track language.name) {
+        <div class="lang-line"><span>{{ language.name }}</span><span>{{ language.proficiency }}</span></div>
+      }
+    </div>
+  </div>
+</section>

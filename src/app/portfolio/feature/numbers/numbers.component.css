@@ -1,0 +1,91 @@
+.numbers-scene {
+  background: var(--lime);
+  color: #11150d;
+  padding-top: 62px;
+  padding-bottom: 62px;
+}
+
+.numbers-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+}
+
+.number-cell {
+  padding: 14px 25px;
+  border-right: 1px solid #151a1533;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.number-cell:first-child {
+  padding-left: 0;
+}
+
+.number-cell:last-child {
+  border: 0;
+}
+
+.cell-index {
+  color: #313c24;
+}
+
+.number-cell strong {
+  font-size: clamp(56px,6vw,115px);
+  letter-spacing: -.1em;
+  line-height: 1;
+  font-weight: 800;
+}
+
+.number-cell>span:last-child {
+  font-size: 13px;
+  max-width: 220px;
+  line-height: 1.45;
+}
+
+@media (max-width:600px) {
+  .numbers-scene {
+    padding-top: 28px;
+    padding-bottom: 28px;
+  }
+
+  .numbers-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+
+  .number-cell {
+    padding: 25px 15px 25px 0;
+    border-bottom: 1px solid #151a1540;
+  }
+
+  .number-cell:nth-child(even) {
+    border-right: 0;
+    padding-left: 15px;
+  }
+
+  .number-cell:nth-child(n+3) {
+    border-bottom: 0;
+  }
+
+  .number-cell strong {
+    font-size: 77px;
+  }
+
+  .number-cell>span:last-child {
+    font-size: 11px;
+  }
+}
+
+/* Numbering ("01 / NUMBERS") comes from a CSS counter, see `two-digit` in styles.css. */
+.numbers-grid {
+  counter-reset: stat;
+}
+
+.number-cell {
+  counter-increment: stat;
+}
+
+.cell-index::before {
+  content: counter(stat, two-digit) " ";
+}

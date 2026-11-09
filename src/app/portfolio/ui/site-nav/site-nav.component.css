@@ -1,0 +1,209 @@
+:host {
+  display: block;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.progress-track {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 2px;
+  width: 100%;
+  z-index: 200;
+  pointer-events: none;
+}
+
+.progress-fill {
+  height: 100%;
+  background: var(--lime);
+  transform-origin: left;
+  transform: scaleX(calc(var(--scroll-progress) / 100));
+}
+
+/* Both the bar and the counter read --scroll-progress, animated by the page scroll (see styles.css). */
+:host {
+  animation: scroll-progress linear both;
+  animation-timeline: scroll(root);
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  height: 86px;
+  padding: 0 clamp(24px,5.2vw,100px);
+  border-bottom: 1px solid var(--line);
+  position: relative;
+  z-index: 35;
+  background: var(--bg);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-shrink: 0;
+}
+
+.brand-mark {
+  font-size: 29px;
+  font-weight: 900;
+  letter-spacing: -.13em;
+}
+
+.brand-spark {
+  font-size: 18px;
+  vertical-align: top;
+  color: var(--lime);
+  padding-left: 5px;
+}
+
+.brand-text {
+  color: #c4c7c9;
+}
+
+.nav-status {
+  margin-left: auto;
+  color: #c8cac7;
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.desktop-links {
+  display: flex;
+  gap: 25px;
+  margin-left: auto;
+}
+
+.desktop-links a {
+  color: #b4b6b5;
+  transition: color .2s;
+}
+
+.desktop-links a:hover {
+  color: var(--lime);
+}
+
+.nav-counter {
+  color: var(--lime);
+  padding-left: 20px;
+}
+
+.lang-switch {
+  display: flex;
+  gap: 2px;
+}
+
+.lang-switch button {
+  background: none;
+  border: 1px solid transparent;
+  color: #b4b6b5;
+  padding: 6px 7px;
+  letter-spacing: inherit;
+  transition: color .2s;
+}
+
+.lang-switch button:hover {
+  color: var(--lime);
+}
+
+.lang-switch button.is-active {
+  color: var(--lime);
+  border-color: var(--line);
+}
+
+.nav-counter::before {
+  counter-reset: progress var(--scroll-progress);
+  content: counter(progress, three-digit) "%";
+}
+
+/* Without scroll-driven animation support the value would be stuck at 0, so hide the bar and counter. */
+@supports not (animation-timeline: scroll()) {
+  .progress-track,
+  .nav-counter {
+    display: none;
+  }
+}
+
+.mobile-menu-toggle,
+.mobile-links {
+  display: none;
+}
+
+@media (max-width:1200px) {
+  .nav-status {
+    display: none;
+  }
+}
+
+@media (max-width:850px) {
+  .site-nav {
+    height: 70px;
+  }
+
+  .desktop-links,
+  .nav-counter {
+    display: none;
+  }
+
+  /* Links are hidden on small screens: push the language switch + menu button to the right. */
+  .lang-switch {
+    margin-left: auto;
+  }
+
+  .mobile-menu-toggle {
+    display: block;
+    color: var(--lime);
+    background: none;
+    border: 0;
+  }
+
+  .mobile-links {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    z-index: 31;
+    background: var(--panel);
+    padding: 10px 24px 20px;
+    flex-direction: column;
+    gap: 0;
+    border-bottom: 1px solid #444;
+  }
+
+  .mobile-links.is-open {
+    display: flex;
+  }
+
+  .mobile-links a {
+    padding: 16px 0;
+    border-bottom: 1px solid #333;
+    font: 12px 'DM Mono',monospace;
+  }
+}
+
+@media (max-width:600px) {
+  .site-nav {
+    padding: 0 22px;
+    gap: 16px;
+  }
+
+  .brand-mark {
+    font-size: 26px;
+  }
+
+  .brand-text {
+    font-size: 10px;
+  }
+}
+
+/* Smallest phones: the AO mark alone leaves room for the language switch and menu button. */
+@media (max-width:380px) {
+  .brand-text {
+    display: none;
+  }
+}

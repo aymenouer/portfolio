@@ -1,0 +1,15 @@
+@let projectsText = portfolio().text.projects;
+<section class="scene projects-scene section-padding" id="projects">
+  <app-scene-heading class="reveal" [label]="projectsText.sceneLabel" [tagline]="projectsText.sceneTagline" />
+
+  <div class="projects-intro reveal">
+    <div><p class="eyebrow">{{ projectsText.eyebrow }}</p><h2>{{ projectsText.title.firstLine }}<br><em>{{ projectsText.title.highlightedLine }}</em></h2></div>
+    <p>{{ projectsText.intro }}</p>
+  </div>
+
+  <div class="project-grid">
+    @for (project of portfolio().projects; track project.illustration) {
+      <article app-project-card class="reveal" [project]="project" [text]="projectsText.card"></article>
+    }
+  </div>
+</section>

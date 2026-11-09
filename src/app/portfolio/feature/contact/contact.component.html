@@ -1,0 +1,22 @@
+@let profile = portfolio().profile;
+@let contactText = portfolio().text.contact;
+<section class="scene contact-scene section-padding" id="contact">
+  <app-scene-heading [label]="contactText.sceneLabel" [tagline]="contactText.sceneTagline" />
+
+  <div class="contact-main reveal">
+    <div class="contact-heading">
+      <p class="eyebrow"><span class="live-dot" aria-hidden="true"></span> {{ contactText.eyebrow }}</p>
+      <h2>{{ contactText.title.firstLine }}<br><em>{{ contactText.title.highlightedLine }}</em>&ngsp;<span>{{ contactText.title.afterHighlight }}</span></h2>
+    </div>
+
+    <div class="contact-links">
+      <a class="email-link" [href]="'mailto:' + profile.email">{{ profile.email }} <span aria-hidden="true">↗</span></a>
+      <button class="copy-button mono" type="button" aria-live="polite" (click)="copyEmail()">{{ isEmailCopied() ? contactText.copiedConfirmation : contactText.copyEmailButton }}</button>
+      <div class="social-links mono">
+        <a [href]="profile.linkedinUrl" target="_blank" rel="noopener">{{ contactText.linkedinLink }} <span aria-hidden="true">↗</span></a>
+        <a [href]="profile.githubUrl" target="_blank" rel="noopener">{{ contactText.githubLink }} <span aria-hidden="true">↗</span></a>
+        <a [href]="profile.resumeUrl" [attr.download]="profile.resumeFileName">{{ contactText.resumeLink }} <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </div>
+</section>
